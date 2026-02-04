@@ -1,33 +1,394 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nime Shaaban 1447</title>
-  <style>
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height:1.6; text-align:center; padding:4rem; color:#111; background: #f7fafc; }
-    header { margin-bottom: 2rem; }
-    h1 { font-size: 2.2rem; margin:0; }
-    p.lead { color:#374151; margin-top:0.5rem; }
-    .card { display:inline-block; text-align:left; background:#fff; border-radius:8px; padding:1.25rem; box-shadow:0 6px 20px rgba(2,6,23,0.08); max-width:640px; }
-    a.button { display:inline-block; margin-top:1rem; padding:0.5rem 0.9rem; background:#2563eb; color:#fff; text-decoration:none; border-radius:6px; }
-    footer { margin-top:2rem; color:#6b7280; font-size:0.9rem; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجموعه فرهنگی مهدیاران | حمایت مالی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: linear-gradient(135deg, #fdfcfb 0%, #f5f7fa 100%);
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #2c3e50 0%, #4a6491 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff9a00 0%, #ffdb4d 100%);
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .bale-channel {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-top: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .bale-channel:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        .bale-channel i {
+            margin-left: 0.5rem;
+            color: #ffdb4d;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex-grow: 1;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid #ff9a00;
+            display: inline-block;
+        }
+        
+        .construction-notice {
+            background: linear-gradient(135deg, #fff8e1 0%, #fff3e0 100%);
+            border-right: 6px solid #ff9a00;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .construction-icon {
+            font-size: 3rem;
+            color: #ff9a00;
+            margin-bottom: 1rem;
+        }
+        
+        .support-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 6px 15px rgba(46, 204, 113, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        .support-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.4);
+            background: linear-gradient(90deg, #219653 0%, #27ae60 100%);
+        }
+        
+        .support-btn i {
+            margin-left: 0.5rem;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 500px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: modalAppear 0.4s ease-out;
+        }
+        
+        @keyframes modalAppear {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 2rem;
+            color: #7f8c8d;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .close-modal:hover {
+            color: #e74c3c;
+        }
+        
+        .card-details {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            text-align: center;
+            border: 2px dashed #95a5a6;
+        }
+        
+        .card-number {
+            font-family: 'Courier New', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #2c3e50;
+            margin: 1rem 0;
+            direction: ltr;
+        }
+        
+        .card-owner {
+            font-size: 1.4rem;
+            color: #27ae60;
+            font-weight: 700;
+            margin-top: 1rem;
+        }
+        
+        .bank-name {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .medal-icon {
+            font-size: 4rem;
+            color: #ff9a00;
+            margin-bottom: 1rem;
+        }
+        
+        .footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-icons {
+            margin-top: 1rem;
+        }
+        
+        .social-icons a {
+            color: #ecf0f1;
+            font-size: 1.5rem;
+            margin: 0 0.8rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #ffdb4d;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .card-number {
+                font-size: 1.4rem;
+                letter-spacing: 1px;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Nime Shaaban 1447</h1>
-    <p class="lead">Example GitHub Pages site for the repository</p>
-  </header>
+    <!-- هدر صفحه -->
+    <header class="header">
+        <h1>مجموعه فرهنگی مهدیاران</h1>
+        <p>تلاش برای ترویج فرهنگ و ارزش‌های اصیل ایرانی</p>
+        <div class="bale-channel">
+            <i class="fab fa-telegram"></i>
+            <span>کانال بله: @ashab_resane</span>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- بخش اطلاع‌رسانی درباره مرکز در دست احداث -->
+        <div class="construction-notice">
+            <div style="text-align: center;">
+                <div class="construction-icon">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <h2 style="color: #d35400; margin-bottom: 1rem;">مرکز فرهنگی در دست احداث</h2>
+                <p style="font-size: 1.1rem;">
+                    هم‌اکنون در حال ساخت و تجهیز مرکز فرهنگی جدید مهدیاران هستیم. این مرکز با هدف ایجاد فضایی برای فعالیت‌های فرهنگی، آموزشی و هنری در حال ساخت می‌باشد. برای تسریع در افتتاح این مرکز، به حمایت‌های مردمی نیاز داریم.
+                </p>
+            </div>
+        </div>
+        
+        <!-- بخش اصلی محتوا -->
+        <div class="section">
+            <h2 class="section-title">درباره مجموعه فرهنگی مهدیاران</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                مجموعه فرهنگی مهدیاران با هدف ترویج فرهنگ اصیل ایرانی-اسلامی و ارائه خدمات فرهنگی و آموزشی به نسل جوان فعالیت می‌کند. این مجموعه با برگزاری دوره‌های آموزشی، کارگاه‌های هنری، جشنواره‌های فرهنگی و برنامه‌های متنوع دیگر، در راستای ارتقای سطح فرهنگی جامعه گام برمی‌دارد.
+            </p>
+            
+            <div style="text-align: center; margin: 2.5rem 0;">
+                <button id="supportButton" class="support-btn">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    حمایت مالی از مجموعه
+                </button>
+            </div>
+            
+            <div style="margin-top: 2rem; background-color: #f8f9fa; padding: 1.5rem; border-radius: 12px;">
+                <h3 style="color: #2c3e50; margin-bottom: 1rem;">راه‌های ارتباطی دیگر:</h3>
+                <p><i class="fas fa-envelope" style="color: #3498db; margin-left: 0.5rem;"></i> ایمیل: info@mahdiyaran.ir</p>
+                <p><i class="fas fa-phone" style="color: #3498db; margin-left: 0.5rem;"></i> تلفن: ۰۲۱-۱۲۳۴۵۶۷۸</p>
+                <p><i class="fas fa-map-marker-alt" style="color: #3498db; margin-left: 0.5rem;"></i> آدرس: تهران، خیابان ولیعصر، مجموعه فرهنگی مهدیاران</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- مدال حمایت مالی -->
+    <div id="supportModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div style="text-align: center;">
+                <div class="medal-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h2 style="color: #2c3e50; margin-bottom: 1rem;">حمایت مالی از مجموعه فرهنگی مهدیاران</h2>
+                <p style="margin-bottom: 1.5rem;">با حمایت مالی شما، در توسعه و گسترش فعالیت‌های فرهنگی سهیم خواهید بود.</p>
+                
+                <div class="card-details">
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">شماره کارت بانکی:</h3>
+                    <div class="card-number">۵۸۹۲-۱۰۷۰-۴۶۷۳-۹۳۸۲</div>
+                    <div class="card-owner">به نام: ودجا برای مجموعه فرهنگی مهدیاران</div>
+                    <div class="bank-name">بانک سپه</div>
+                </div>
+                
+                <p style="color: #7f8c8d; margin-top: 1.5rem; font-size: 0.9rem;">
+                    پس از واریز مبلغ، لطفاً از طریق کانال بله اطلاع دهید.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- فوتر -->
+    <footer class="footer">
+        <p>تمامی حقوق برای مجموعه فرهنگی مهدیاران محفوظ است © ۱۴۰۳</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
 
-  <main class="card" role="main">
-    <p>Hello — this is a minimal example site to serve from GitHub Pages.</p>
-    <p>Replace this content with your real site files (HTML, CSS, JS).</p>
-    <p><a class="button" href="https://github.com/mahdiyaran/nime-shaaban-1447">View repo on GitHub</a></p>
-  </main>
-
-  <footer>
-    <p>Built with ❤️ — Nime Shaaban 1447</p>
-  </footer>
+    <script>
+        // نمایش مدال حمایت مالی
+        document.getElementById('supportButton').addEventListener('click', function() {
+            document.getElementById('supportModal').style.display = 'flex';
+        });
+        
+        // بستن مدال حمایت مالی
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('supportModal').style.display = 'none';
+        });
+        
+        // بستن مدال با کلیک خارج از آن
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('supportModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // کپی کردن شماره کارت با کلیک بر روی آن
+        document.querySelector('.card-number').addEventListener('click', function() {
+            const cardNumber = this.innerText.replace(/-/g, '');
+            navigator.clipboard.writeText(cardNumber).then(() => {
+                const originalText = this.innerText;
+                this.innerText = 'شماره کارت کپی شد!';
+                this.style.color = '#27ae60';
+                
+                setTimeout(() => {
+                    this.innerText = originalText;
+                    this.style.color = '#2c3e50';
+                }, 2000);
+            });
+        });
+    </script>
 </body>
 </html>
